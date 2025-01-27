@@ -19,19 +19,19 @@ const productsSortedList = await this.page.locator('//div[@id="inventory_contain
 const firstPriceText = await productsSortedList[0].textContent();
 let firstPriceValue = parseFloat(firstPriceText.replace('$', '').trim());
 
-let isDescending = true;  // Set to true initially for descending order
+let isDescending = true;
 
 for (let i = 1; i < productsSortedList.length; i++) {
     const priceText = await productsSortedList[i].textContent();
     const priceValue = parseFloat(priceText.replace('$', '').trim());
 
-    // Check if the current price is greater than the previous one (for descending order)
+    
     if (priceValue > firstPriceValue) {
-        isDescending = false;  // Set to false if not descending
+        isDescending = false;
         break;
     }
 
-    firstPriceValue = priceValue;  // Update the previous price for comparison
+    firstPriceValue = priceValue;
 }
 
 if (isDescending) {

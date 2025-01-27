@@ -82,7 +82,7 @@ async navigateToCheckoutCompletePage()
 
     
     try {
-        await this.page.waitForNavigation({ waitUntil: 'load', timeout: 10000 });  // 10 seconds timeout
+        await this.page.waitForNavigation({ waitUntil: 'load', timeout: 10000 });
     } catch (error) {
         console.error('Error occurred while waiting for navigation:', error);
     }

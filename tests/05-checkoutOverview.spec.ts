@@ -1,7 +1,7 @@
 import {test,expect,BrowserContext, Page } from "playwright/test";
 import { initializePages, login1, prod,cart1,Checkoutoverviewpage } from './sharedPages';
 
-test('Get Page Title of Checkout Information page', async ({ page }) => {
+test('Test:Verify Page Title of Checkout Overview page', async ({ page }) => {
 
    await Checkoutoverviewpage.getTitle();
 
@@ -37,11 +37,11 @@ function compareProductDetails(array1: any[], array2: any[]): boolean {
         }
 
 
-test('Verify the product details in checkout overview page', async ({ page}) => {
+test('Test:Verify the product details in checkout overview page are equal to product details in cart', async ({ page}) => {
     await cart1.getFinalProductsInCart();
-    //console.log(cart1.finalCartProductDetails);
+    
     await Checkoutoverviewpage.getFinalProductsInCart();
-    //console.log( Checkoutoverviewpage.finalOverviewProductDetails);
+    
    
 
     const productDetailsinCartPage = cart1.finalCartProductDetails;
@@ -61,14 +61,14 @@ test('Verify the product details in checkout overview page', async ({ page}) => 
         expect(areProductsEqual).toBe(true);    
 });
 
-test('Verify the total price in checkout overview page ', async ({ page }) => {
+test('Test:Verify the total price in checkout overview page is equal to sum of prices of each products ', async ({ page }) => {
 
     await Checkoutoverviewpage.verifyTotalPrice();
  
  
  });
 
- test('Navigate to checkout complete page ', async ({ page }) => {
+ test('Test:Navigate to checkout complete page ', async ({ page }) => {
 
     await Checkoutoverviewpage.navigateToCheckoutCompletePage();
  

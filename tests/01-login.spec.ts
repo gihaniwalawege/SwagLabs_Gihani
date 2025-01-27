@@ -22,7 +22,7 @@ test.beforeAll(async ({ browser }) => {
   });
 
 
-test('Test1 login', async ({ page }) => {
+test('Test:Login to the system with correct credentials', async ({ page }) => {
 
 await login1.navigateTo();
 await login1.enterUsernameAndPassword('standard_user','secret_sauce');

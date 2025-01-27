@@ -21,7 +21,7 @@ async getTitle()
 async getProductsInCart() {
    
   
-  const cartItems = await this.page.locator('.cart_item'); // Get all cart items
+  const cartItems = await this.page.locator('.cart_item');
 
   const count = await cartItems.count();
   console.log(`Found ${count} products in cart.`);
@@ -44,11 +44,11 @@ async getProductsInCart() {
 return this.cartproductDetails;
 }
 
-async getProductsFromCart()
+async removecheapestItemToCart()
 {
   const productsSortedListCart = await this.page.locator('//div[@class="inventory_item_price"]');
 
-  let minPriceValue = Infinity;  // Initialize with Infinity to find the minimum
+  let minPriceValue = Infinity;
   let minPriceLocator: Locator;
   
   const productCount = await productsSortedListCart.count();
@@ -68,7 +68,7 @@ async getProductsFromCart()
   if (minPriceLocator) {
       const addToCartButtonLocator = minPriceLocator.locator('xpath=../button');
       await addToCartButtonLocator.click();
-      console.log('Product with lowest price added to cart successfully');
+      console.log('Product with lowest price removed to cart successfully');
   } else {
       console.log('No products found');
   }

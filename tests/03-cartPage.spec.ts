@@ -2,7 +2,7 @@ import {test,expect,BrowserContext, Page } from "playwright/test";
 import { initializePages, login1, prod,cart1 } from './sharedPages';
 
 
-test('5-Find the highest price item from cart', async ({ page}) => {
+test('Test:Verify the page title and URL of Cart Page', async ({ page}) => {
     
 
   await cart1.getTitle();
@@ -36,7 +36,7 @@ for (let i = 0; i < array1.length; i++) {
     
     return true; 
     }
-test('6-Get the price list from cart', async ({ page}) => {
+test('Test:Verify whether the product details in the cart match with product details in Products page', async ({ page}) => {
 
    await cart1.getProductsInCart();
    console.log(cart1.cartproductDetails);
@@ -59,14 +59,14 @@ test('6-Get the price list from cart', async ({ page}) => {
 
 });
      
-test('Remove the highest price item from cart', async ({page}) => {
+test('Test:Remove the cheapest item from cart', async ({page}) => {
 
-    await cart1.getProductsFromCart();
+    await cart1.removecheapestItemToCart();
      
     }); 
 
 
-test('Navigate to CheckoutInformation Page', async ({page}) => {
+test('Test:Navigate to CheckoutInformation Page', async ({page}) => {
 
 await cart1.navigateToCheckoutInformationPage();
 }); 

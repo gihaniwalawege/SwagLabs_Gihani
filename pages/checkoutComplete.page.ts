@@ -33,18 +33,14 @@ async navigateToHomePage()
     await this.page.waitForTimeout(2000);
     
     const backToHome = this.page.locator('//button[@id="back-to-products"]');
-    
-    
-
-
-    
+   
     await backToHome.click();
 
     
-    try {
-        await this.page.waitForNavigation({ waitUntil: 'load', timeout: 10000 });
-    } catch (error) {
-        console.error('Error occurred while waiting for navigation:', error);
-    }
+    //try {
+   //     await this.page.waitForNavigation({ waitUntil: 'load', timeout: 10000 });
+   // } catch (error) {
+   //     console.error('Error occurred while waiting for navigation:', error);
+  //  }
 }
 }
